@@ -1,0 +1,27 @@
+syntax = "proto3";
+package com.mycompany.smartzerohungersystem.distributionoptimizer;
+
+message RegionRequest {
+  string region = 1;
+}
+
+message DeliveryInstruction {
+  string vehicle = 1;
+  string route   = 2;
+  int32  quantity = 3;
+}
+
+message OptimizationSummary {
+  int32 totalVehicles   = 1;
+  int32 totalDeliveries = 2;
+}
+
+service DistributionOptimizerService {
+  // unary request → server‑streaming instructions
+  rpc GetDistributionPlan (RegionRequest)          returns (stream DeliveryInstruction);
+  // unary request → unary summary
+  rpc OptimizeAll        (Empty)                   returns (OptimizationSummary);
+}
+
+message Empty {}
+

@@ -1,0 +1,30 @@
+syntax = "proto3";
+package com.mycompany.smartzerohungersystem.demandtracker;
+
+message HungerReport {
+  string region = 1;
+  int32  count  = 2;
+}
+
+message AggregateReport {
+  int32 totalReports = 1;
+  int32 totalCount   = 2;
+}
+
+message RegionRequest {
+  string region = 1;
+}
+
+message DemandStats {
+  string region         = 1;
+  int32  reportCount    = 2;
+  int32  aggregatedCount = 3;
+}
+
+service DemandTrackerService {
+  // client‑side streaming of reports → returns aggregate
+  rpc StreamReports (stream HungerReport) returns (AggregateReport);
+  // unary stats lookup
+  rpc GetDemandStats (RegionRequest)    returns (DemandStats);
+}
+

@@ -1,0 +1,28 @@
+syntax = "proto3";
+package com.mycompany.smartzerohungersystem.foodinventory;
+
+message Empty {}
+
+message AddItemRequest {
+  string name     = 1;
+  int32  quantity = 2;
+}
+
+message AddItemResponse {
+  string message = 1;
+}
+
+message InventoryItem {
+  string name     = 1;
+  int32  quantity = 2;
+}
+
+message InventoryList {
+  repeated InventoryItem items = 1;
+}
+
+service FoodInventoryService {
+  rpc AddItem     (AddItemRequest) returns (AddItemResponse);
+  rpc GetInventory (Empty)         returns (InventoryList);
+}
+
