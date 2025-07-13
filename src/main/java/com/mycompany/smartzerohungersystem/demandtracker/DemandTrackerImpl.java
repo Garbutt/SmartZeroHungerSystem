@@ -8,6 +8,6 @@ package com.mycompany.smartzerohungersystem.demandtracker;
  *
  * @author reece
  */
-public class DemandTrackerImpl {
+public class DemandTrackerImpl extends DemandTrackerServiceGrpc.DemandTrackerServiceImplBase  {
     
 }

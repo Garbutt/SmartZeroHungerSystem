@@ -8,6 +8,6 @@ package com.mycompany.smartzerohungersystem.distributionoptimizer;
  *
  * @author reece
  */
-public class DistributionOptimizerImpl {
+public class DistributionOptimizerImpl extends DistributionOptimizerServiceGrpc.DistributionOptimizerServiceImplBase {
     
 }

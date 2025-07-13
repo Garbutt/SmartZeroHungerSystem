@@ -18,13 +18,12 @@ import com.mycompany.smartzerohungersystem.distributionoptimizer.DistributionOpt
  */
 public class App {
     public static void main(String[] args) throws Exception {
-    Server food = ServerBuilder.forPort(50051)
-      .addService(new FoodInventoryImpl()).build().start();
-    registerMdns("FoodInventory", 50051);
-    
+   
+ 
        System.out.println("Starting GUI...");
-    ClientGUI gui = new ClientGUI();
-    gui.build();
+ ClientGUI gui = new ClientGUI();
+gui.build();
+
 
 //    Server demand = ServerBuilder.forPort(50052)
 //      .addService(new DemandTrackerImpl()).build().start();
