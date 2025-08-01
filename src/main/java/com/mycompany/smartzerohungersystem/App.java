@@ -24,15 +24,6 @@ public class App {
  ClientGUI gui = new ClientGUI();
 gui.build();
 
-
-//    Server demand = ServerBuilder.forPort(50052)
-//      .addService(new DemandTrackerImpl()).build().start();
-//    registerMdns("DemandTracker", 50052);
-
-//    Server distro = ServerBuilder.forPort(50053)
-//      .addService(new DistributionOptimizerImpl()).build().start();
-//    registerMdns("DistributionOptimizer", 50053);
-
     System.out.println("All services up. Ctrl+C to stop");
     Thread.currentThread().join();  // keep running
   }

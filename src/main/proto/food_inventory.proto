@@ -3,7 +3,7 @@ option java_multiple_files = true;
 option java_package = "com.mycompany.smartzerohungersystem.foodinventory";
 package com.mycompany.smartzerohungersystem.foodinventory;
 
-message Empty {}
+import "google/protobuf/empty.proto";
 
 message AddItemRequest {
   string name     = 1;
@@ -25,6 +25,6 @@ message InventoryList {
 
 service FoodInventoryService {
   rpc AddItem     (AddItemRequest) returns (AddItemResponse);
-  rpc GetInventory (Empty)         returns (InventoryList);
+  rpc GetInventory (google.protobuf.Empty)         returns (InventoryList);
 }
 

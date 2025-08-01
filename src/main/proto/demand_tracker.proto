@@ -1,9 +1,16 @@
 syntax = "proto3";
 package com.mycompany.smartzerohungersystem.demandtracker;
 
+
+import "google/protobuf/empty.proto";
+
 message HungerReport {
   string region = 1;
   int32  count  = 2;
+}
+
+message AllRegionStats {
+  repeated DemandStats stats = 1;
 }
 
 message AggregateReport {
@@ -26,5 +33,7 @@ service DemandTrackerService {
   rpc StreamReports (stream HungerReport) returns (AggregateReport);
   // unary stats lookup
   rpc GetDemandStats (RegionRequest)    returns (DemandStats);
+  rpc GetAllDemandStats (google.protobuf.Empty) returns (AllRegionStats);
+
 }
 
